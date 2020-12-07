@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+Route::match(array('GET', 'POST'), 'logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::get('/home', 'HomeController@home')->name('home');
+
+Route::get('/subscribers/create', 'SubscribersController@create');
+Route::post('/subscribers', 'SubscribersController@store');
+Route::get('/subscribers/{subscribe}/edit', 'SubscribersController@edit');
+Route::patch('/subscribers/{subscribe}', 'SubscribersController@update');

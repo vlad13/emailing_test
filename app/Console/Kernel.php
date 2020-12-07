@@ -24,8 +24,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        // php artisan send-subscribers-changes
+        $schedule->command('send-subscribers-changes')->everyMinute();
     }
 
     /**
